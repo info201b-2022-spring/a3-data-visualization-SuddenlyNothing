@@ -1,6 +1,6 @@
 library(tidyverse)
 
-# incarceration_trends <- read.csv("incarceration_trends.csv")
+incarceration_trends <- read.csv("incarceration_trends.csv")
 
 # Summary info
 summary_info <- list()
@@ -32,4 +32,4 @@ male_female_prison_prop_lines <- ggplot(data = male_female_prison_prop,
   geom_line() +
   theme_minimal() +
   labs(y = "Prison Proportion", title = "Prison Proportion\nBy Gender") +
-  theme(plot.title = element_text(hjust = 0.5), legend.title = element_blank())
+  theme(plot.title = element_text(hjust = 0.5))
