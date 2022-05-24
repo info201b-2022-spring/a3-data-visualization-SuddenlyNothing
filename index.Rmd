@@ -1,0 +1,60 @@
+---
+title: "Incarceration Data Visualization"
+output: html_document
+---
+```{r echo=F, include=F, cache=T}
+source("analysis.R")
+```
+
+# Summary
+The data set I am analyzing contains incarceration information from
+`r summary_info$min_year` to `r summary_info$max_year`. The data set contains
+variables such as:\
+\
+`r summary_info$columns`\
+\
+I will only be looking at the prison and jail population in relation to by
+gender. These data are collected for `r summary_info$num_states` states and
+`r summary_info$num_counties` counties.
+
+# Prison Proportion Trends
+This chart shows the total prison population proportion for males and females.
+```{r echo=F}
+male_female_prison_prop_lines
+```
+\
+Males are overwhelmingly the larger proportion in the population. However,
+females are steadily increasing in proportion while males are steadily dropping.
+\
+
+# Female Male Comparison
+However, males still largely outnumber females in prison populations. To view
+this disparity. I retrieved the 2016 prison populations and grouped them by
+sex.\
+```{r echo=F}
+female_male_prison_2016
+```
+\
+As you can see, the chart shows that males are greatly outnumbering females.
+This is only 2016 counts, but every year before this is also a large
+difference.
+
+# State Map Ratio
+I wanted to see which states were the contributors to males dominating the
+prison population. To do so I divided the males in prison by the females in
+prison then grouped them by state. The areas in the map that are blank had no
+information about them.
+```{r echo=F}
+state_ratio_map
+```
+\
+This map shows that Texas and California were the largest contributors to males
+in prison. However, this might be because these states just send more people to
+jail in general so I created another map that contains the proportion of males
+to females in jail.\
+```{r echo=F}
+state_incarcerations_rel_prop
+```
+\
+Ah, now instead of most of the offending areas being in Texas and California, it
+is now mostly in the North East region of the map.
